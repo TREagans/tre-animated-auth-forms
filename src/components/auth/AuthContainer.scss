@@ -1,0 +1,116 @@
+.box {
+  width: 65rem;
+  height: auto;
+}
+
+.main-container {
+  width: 100%;
+  height: 35rem;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 3px 25px rgba(0, 0, 0, 0.5)
+}
+
+.img-container {
+  width: 50%;
+  height: 100%;
+  padding: 4rem 1rem;
+  background-color: var(--color-primary);
+
+  // we're going to give this image container
+  // an animation with the name "slide-down"
+  // it will take 0.75 secs to complete & ease
+  animation: slide-down 0.75s ease;
+}
+
+// here we're animating the img-container
+// to animate, we use @keyframes [animation name]
+// here, we're using the animation name "slide-down"
+@keyframes slide-down {
+  
+  // at 0% we want to set a transform
+  // we translateY (move up -100)
+  0% {
+    transform: translateY(-100%);
+  }
+
+  // at 100% we place img-container at original position
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+}
+
+.form-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  // we're going to give this image container
+  // an animation with the name "slide-up"
+  // it will take 0.75 secs to complete & ease
+  animation: slide-up 0.75s ease;
+}
+
+// here we're animating the form-container
+// to animate, we use @keyframes [animation name]
+// here, we're using the animation name "slide-up"
+@keyframes slide-up {
+  
+  // at 0% we want to set a transform
+  // we translateY (move down 100)
+  0% {
+    transform: translateY(100%);
+  }
+
+  // at 100% we place img-container at original position
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+form {
+  width: 90%;
+}
+
+form a {
+  text-decoration: none;
+}
+
+.reset {
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  height: 3rem;
+  width: 3rem;
+  border: 1px dashed red;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+// this media query will; hide the image
+// when the screen size is small
+@media screen and (max-width: 500px) {
+ 
+  // use these when screen size is 500px and below
+  // the ime-container is not displayed below 500px
+  .img-container {
+    display: none;
+  }
+  .form-container {
+    width: 100%;
+  }
+}
