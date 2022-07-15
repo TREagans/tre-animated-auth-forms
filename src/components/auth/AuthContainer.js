@@ -10,6 +10,11 @@ const AuthContainer = () => {
     register: false,
     reset: false
   });
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleTogglePassword = () => {
+		setShowPassword(!showPassword);
+  };
 
   const handleLogin = () => {
     setAuth({ login: true, register: false, reset: false});
@@ -31,11 +36,13 @@ const AuthContainer = () => {
 					<Login onRegister={handleRegister} onReset={handleReset} />
 				)}
 				{auth.register && (
-          <Register onLogin={handleLogin} />
-        )}
-				{auth.reset && (
-          <Reset onLogin={handleLogin} />
-        )}
+					<Register
+						onLogin={handleLogin}
+						onShowPassword={showPassword}
+						onTogglePassword={handleTogglePassword}
+					/>
+				)}
+				{auth.reset && <Reset onLogin={handleLogin} />}
 			</div>
 		</section>
   );

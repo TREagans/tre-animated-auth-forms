@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
 import registerImg from "../../assets/register.svg";
-import './AuthContainer.scss';
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import "./AuthContainer.scss";
 
-const Register = ({ onLogin }) => {
-  return (
+const Register = ({ onLogin, onShowPassword, onTogglePassword }) => {
+	return (
 		<div className="main-container --flex-center">
 			<div className="form-container">
 				<form className="--form-control">
@@ -17,11 +18,20 @@ const Register = ({ onLogin }) => {
 						placeholder="Email Address"
 					/>
 
-					<input
-						type="password"
-						className="--width-100"
-						placeholder="Password"
-					/>
+					<div className="password">
+						<input
+							type={onShowPassword ? "text" : "password"}
+							className="--width-100"
+							placeholder="Password"
+						/>
+						<span className="icon" onClick={onTogglePassword}>
+							{onShowPassword ? (
+								<AiOutlineEyeInvisible />
+							) : (
+								<AiOutlineEye />
+							)}
+						</span>
+					</div>
 
 					<button className="--btn --btn-primary --btn-block">Register</button>
 
@@ -38,7 +48,7 @@ const Register = ({ onLogin }) => {
 				<img src={registerImg} alt="Register" />
 			</div>
 		</div>
-  );
-}
+	);
+};
 
 export default Register;
